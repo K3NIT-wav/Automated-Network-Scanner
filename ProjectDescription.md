@@ -52,7 +52,7 @@ Here are the key scans I performed and what I learned from them.
 - I learnt a skill and now understand how attackers use this technique to hide their tracks and how security analysts must look for multiple sources in logs.
 - Demonstrated privilege escalation using the 'sudo' command, which gives users temporary permissions.
 
-### 4. Vulnerability Scanning (`--script vuln`)
+### 4. Vulnerability Scanning ('--script vuln')
 **Command:** 'sudo nmap --script vuln [target IP]
 
 **Purpose:** To run a scan against a target to identify known vulnerabilities/CVE.
