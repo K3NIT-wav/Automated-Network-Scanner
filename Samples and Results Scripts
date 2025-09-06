@@ -1,0 +1,110 @@
+# Samples and Results
+
+## Network Vulnerability Scanning
+
+**input:** 
+
+‘sudo nmap —script vuln xxx.xxx.x.1’
+
+**output:** 
+
+Nmap scan report for XXX.XXX.X.1
+Host is up (0.0050s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT    STATE SERVICE
+53/tcp  open  domain
+80/tcp  open  http
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|   /cgi-bin/mj_wwwusr: Majordomo2 Mailing List
+|   /cgi-bin/vcs: Mitel Audio and Web Conferencing (AWC)
+|   /cgi-bin/ffileman.cgi?: Ffileman Web File Manager
+|   /cgi-bin/ck/mimencode: ContentKeeper Web Appliance
+|   /cgi-bin/masterCGI?: Alcatel-Lucent OmniPCX Enterprise
+|   /cgi-bin/awstats.pl: AWStats
+|   /cgi-bin/image/shikaku2.png: TeraStation PRO RAID 0/1/5 Network Attached Storage
+|   /cgi-bin/export_debug_msg.exp: Cisco RV320/RV325 Unauthenticated Diagnostic Data & Configuration Export (CVE-2019-1653)
+|   /cgi-bin/config.exp: Cisco RV320/RV325 Unauthenticated Diagnostic Data & Configuration Export (CVE-2019-1653)
+|   /cgi-bin2/: Potentially interesting folder
+|_  /cgi-bin/: Potentially interesting folder
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+|_http-majordomo2-dir-traversal: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+443/tcp open  https
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-vuln-cve2014-3704: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+MAC Address: XX:XX:XX:XX:XX:XX (zte)
+
+Nmap done: 1 IP address (1 host up) scanned in 565.33 seconds
+
+
+
+## Service and Version Discovery
+
+**Input:** ‘sudo nmap -sV -sC xxx.xxx.x.1’
+
+**output:** 
+
+Nmap scan report for 192.168.0.1
+Host is up (0.0051s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT    STATE SERVICE   VERSION
+53/tcp  open  domain    Cloudflare public DNS
+80/tcp  open  http
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 302 Redirect
+|     Date: Thu Sep 4 04:23:26 2025
+|     Pragma: no-cache
+|     Cache-Control: no-store
+|     Content-Type: text/html
+|     X-Content-Type-Options: nosniff
+|     Content-Security-Policy: default-src 'none'; font-src 'self';frame-src 'self'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';
+|     Referrer-Policy: strict-origin
+|     X-Frame-Options: sameorigin
+|     X-XSS-Protection: 1; mode=block
+|     Location: http:///index.html
+|     <html><head></head><body>
+|     This document has moved to a new <a href="http:///index.html">location</a>.
+|     Please update your documents to reflect the new location.
+|     </body></html>
+|   HTTPOptions, RTSPRequest: 
+|     HTTP/1.1 400 Page not found
+|     Date: Thu Sep 4 04:23:26 2025
+|     Pragma: no-cache
+|     Cache-Control: no-store
+|     Content-Type: text/html
+|     X-Content-Type-Options: nosniff
+|     Content-Security-Policy: default-src 'none'; font-src 'self';frame-src 'self'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self';
+|     Referrer-Policy: strict-origin
+|     X-Frame-Options: sameorigin
+|     X-XSS-Protection: 1; mode=block
+|     <html><head><title>Document Error: Page not found</title></head>
+|     <body><h2>Access Error: Page not found</h2>
+|_    <p>Bad request type</p></body></html>
+| http-title: Site doesn't have a title (text/html).
+|_Requested resource was http://192.168.0.1/index.html
+443/tcp open  ssl/https
+| ssl-cert: Subject: commonName=ZTE MBB SSL Certificate/organizationName=ZTE/stateOrProvinceName=GUANGDONG/countryName=CN
+| Subject Alternative Name: DNS:*.ztedevice.com, DNS:192.168.0.1
+| Not valid before: 2021-04-22T09:11:16
+|_Not valid after:  2121-03-29T09:11:16
+1 service unrecognised despite returning data.’
+
