@@ -1,6 +1,6 @@
 # Automated Network Recon and Vulnerability Scanning Project
 
-This is one of the hands-on project I have done. This project was carried out in order to learn and demonstrate network reconnaissance and security scanning using Nmap commands. This project documents my practical exploration of Nmap, the industry-standard network security tool, and its wide range of capabilities. For this project, I started completely from scratch - installing the necessary software on macOS then  progressed to performing host discovery, port scanning, decoy scanning, and basic automated vulnerability assessment on my own home network.
+This is one of the hands-on project I have done. This project was carried out in order to learn and demonstrate network reconnaissance and security scanning using Nmap commands. This project documents my practical exploration of Nmap, the industry-standard network security tool, and its wide range of capabilities. For this project, I started completely from scratch - installing the necessary software on macOS then  progressed to performing host discovery, port scanning, decoy scanning, and basic automated vulnerability assessments on my own home network.
 
 ### Disclaimer
 
@@ -77,6 +77,10 @@ Here are the key scans I performed and what I learned from them.
 This project provided me with invaluable hands-on experience with fundamental cybersecurity tools and concepts. I progressed from unable to run 'nmap' to successfully identifying a potential vulnerability on my own network! This entire process taught me various command syntax as well as the underlying principles of network communication, reconnaissance, and the importance of ethical scanning. My skills and knowledge, such as attention to detail, critical thinking, technical problem-solving have been further developed through this project. Furthermore, my patience was also tested and improved due to the amount of errors and waiting times experienced during this fun project.
 
 I also took the time to learn about more commands and switches (e.g. '-sA', '-sW', '-T0'), which were not used in this project but will definitely be used and tested **ethically** in future projects. One of the commands I look forward to trying is the '-T(0-4)' switches. This switch alters the speed or time interval between each scan. 
+
+This project has also exposed a lot about my own home network. The vulnerability scans, that I executed on my network, resulted in a list of high-risk vulnerabilties. Seeing how many vulnerabilities that my network is prone to opened my eyes to how poor the security posture is for my home network. It also showed me how local threats and vulnerabilities can be. This has definitely inspired me to explore remedies and methods into improving my local security posture andmaking sure to stay on top of those defenses. I quickly realised that simple mobile device or laptop (end-point user) updates are not enough. The router is still a very vulnerable target, which could possibly act as an entry point for many threat actors due to many reasonsm, such as outdated/neglected firmware etc.
+
+**(Feel free to have a look at the full vulnerabilty scan results in the other files of this repository)**
 
 - **Hard Skills Used and Developed:**
   - Network Reconnaissance
