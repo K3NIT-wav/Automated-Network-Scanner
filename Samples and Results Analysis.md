@@ -19,4 +19,6 @@ From the results of entering the —script vuln command, I found a few red flags
 From the results of entering the -sV -sC command, you can see a few interesting points of interest
 - **Port 53** is open and is running Cloudflare’s well-known public DNS. This suggests that my router is configured with Cloudflare’s DNS (1.1.1.1) for all devices connected to the network, which is a solid security feature for browsing.
 - **Port 80** is open. Port 80 is a web management port (HTTP), however, it is not the most secure option for that type of operation. 
-    - Doing a bit of research on the names found under port 80, I discovered that “X-Frame-
+    - Doing a bit of research on the names found under port 80, I discovered that “X-Frame-Options” and “X-XSS-Protection” are both effective against clickjacking and cross-site scripting (XSS) attacks.
+    - Furthermore, “Content-Security-Policy” (CSP) is also being utlised, which is a better version of the two previously mentioned, which suggests my home web management servers have a strong security posture
+
